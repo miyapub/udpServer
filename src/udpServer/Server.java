@@ -5,8 +5,9 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
  
 public class Server {
-    public static void main(String[] args) throws IOException {
-        DatagramSocket socket = null;
+	@SuppressWarnings("resource")
+	public static void main(String[] args) throws IOException {
+		DatagramSocket socket = null;
         try {
             socket = new DatagramSocket(8888);
         } catch (Exception e) {
@@ -19,5 +20,5 @@ public class Server {
             String result = new String(packet.getData(), packet.getOffset(), packet.getLength());
             System.out.println("receive client's data: " + result);
         }
-    }
+	}
 }
